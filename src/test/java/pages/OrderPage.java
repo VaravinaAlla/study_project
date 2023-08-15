@@ -10,6 +10,7 @@ public class OrderPage {
     public void checkStatusOrderPageIsOpened(){
         $(By.xpath("//input[@data-name='useless-input']")).shouldBe(Condition.exist, Condition.visible);
     }
+
     @Step ("Insert user name")
     public void locateUserNameAndInsertText(String text) {
         $(By.xpath("//input[@data-name='username-input']")).setValue(text);

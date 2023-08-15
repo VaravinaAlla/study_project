@@ -1,16 +1,10 @@
 package io.qameta.junit5;
 
-import com.codeborne.selenide.Condition;
 import dto.RandomTestData;
 import helpers.RemoteStart;
 import helpers.SetupFunctions;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import pages.LoginPage;
-import pages.OrderPage;
-
-
-import static com.codeborne.selenide.Selenide.*;
 
 public class WebLoginTest extends RemoteStart {
 
@@ -21,8 +15,8 @@ public class WebLoginTest extends RemoteStart {
         String password = new SetupFunctions().getPassword();
         loginPage.locateUserNameAndInsertText(username);
         loginPage.locatePasswordAndInsertText(password);
-        OrderPage orderPage = loginPage.clickSignInAndGoToOrder();
-        orderPage.checkStatusOrderPageIsOpened();
+        loginPage.clickSignIn();
+        loginPage.checkOrderPageIsOpened();
     }
 
     @Test
@@ -68,7 +62,7 @@ public class WebLoginTest extends RemoteStart {
         RandomTestData randomLoginAndPassword = new RandomTestData();
         loginPage.locateUserNameAndInsertText("");
         loginPage.locatePasswordAndInsertText(randomLoginAndPassword.generatedRandomPassword());
-        $(By.xpath("//button[@data-name='signIn-button']")).shouldBe(Condition.disabled);
+        loginPage.checkSignInButtonIsDisable();
     }
 
     @Test

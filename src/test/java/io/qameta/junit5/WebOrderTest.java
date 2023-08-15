@@ -1,12 +1,10 @@
 package io.qameta.junit5;
 
-import com.codeborne.selenide.Condition;
 import dto.RandomTestData;
 import helpers.RemoteStart;
 import helpers.SetupFunctions;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import pages.LoginPage;
 import pages.OrderPage;
 
