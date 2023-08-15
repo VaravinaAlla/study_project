@@ -1,7 +1,5 @@
 package io.qameta.junit5;
 
-
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import dto.RandomTestData;
 import helpers.DbManager;
