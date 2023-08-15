@@ -34,7 +34,7 @@ public class IntegrationTest {
         orderPage.clickSearchOrderButton();
         orderPage.insertOrderNumber(String.valueOf(orderID));
         orderPage.clickSubmitSearchButton();
-        orderPage.checkStatusOrder();
+        orderPage.checkStatusOrderPageIsOpened();
         closeWebDriver();
     }
 
