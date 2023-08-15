@@ -1,14 +1,15 @@
-package io.qameta.junit5;
+package helpers;
 
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-public class BeforeEachFailedTest {
+public class BeforeEachSkippedTest {
 
   @BeforeEach
-  void exc() {
-    throw new ArithmeticException("Exception!");
+  void skip() {
+    Assumptions.assumeTrue(false, "Skipping ...");
   }
 
   @Disabled

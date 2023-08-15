@@ -6,3 +6,4 @@ ls# Idea files
 target
 .allure
 allure-results
+/settings.properties

@@ -1,26 +1,26 @@
-package io.qameta.junit5;
+package helpers;
 
-
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import pages.LoginPage;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
-public class WebRemoteTest {
+public class RemoteStart {
     static String baseUrl;
     static String selenoidHubUrl = "http://35.238.172.233:4444";
 
     @BeforeAll
     public static void setUpAll(){
 
-        baseUrl = "http://51.250.6.164:3000/signin";
+        baseUrl = new SetupFunctions().getBaseUrlWeb();
 
         Configuration.remote = selenoidHubUrl + "/wd/hub";
 
@@ -50,31 +50,6 @@ public class WebRemoteTest {
         closeWebDriver();
     }
 
-    @Test
-    public void checkErrorModalWindowsIsAppeared() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.locateUserNameAndInsertText("Masha");
-        loginPage.locatePasswordAndInsertText("password123");
-        loginPage.clickSignIn();
-        $(By.xpath("//div[@data-name='authorizationError-popup']")).shouldBe(Condition.exist, Condition.visible);
-    }
-    @Test
-    public void checkSignInButtonIsDisabledWithEmptyLogin() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.locateUserNameAndInsertText("");
-        loginPage.locatePasswordAndInsertText("password456");
-        $(By.xpath("//button[@data-name='signIn-button']")).shouldBe(Condition.disabled);
-    }
-
-    @Test
-    public void checkErrorMessageIsAppearedWithMinLengthLogin() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.locateUserNameAndInsertText("L");
-        loginPage.locatePasswordAndInsertText("pass568@");
-        $(By.xpath("//*[@data-name = 'username-input']/..//*[@data-name = 'username-input-error']"))
-                .shouldBe(Condition.visible);
-        $(By.xpath("//button[@data-name='signIn-button']")).shouldBe(Condition.disabled);
-    }
     private static boolean checkSelenoidHubConnectivity() {
 
         try {
@@ -91,6 +66,5 @@ public class WebRemoteTest {
         } catch (Exception e) {
             return false;
         }
-
     }
 }
