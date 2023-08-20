@@ -66,5 +66,8 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages        
         PUBLISH_DIR: allure-history
+
+        SECRETS_PROPERTIES: ${{ secrets.SECRETS_PROPERTIES }}
+        run: echo "$SECRETS_PROPERTIES" | base64 -d > ./settings.properties
         
     
