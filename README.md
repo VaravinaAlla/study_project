@@ -1,5 +1,5 @@
-# Study project by allure-maven-junit5-example
-Example of Allure with JUnit5 with Maven
+# Study project by Java-Selenide-Maven-Junit5
+Example with Java/Selenide, JUnit5 with Maven
 
 _- Integration Testing with DB:_
   - Creating order by API and checking number of order on UI;
