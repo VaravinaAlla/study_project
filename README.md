@@ -1,4 +1,4 @@
-# allure-maven-junit5-example
+# Study project by allure-maven-junit5-example
 Example of Allure with JUnit5 with Maven
 
 _- Integration Testing with DB:_
