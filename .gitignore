@@ -7,3 +7,4 @@ target
 .allure
 allure-results
 /settings.properties
+/.github/workflows/
