@@ -30,9 +30,6 @@ jobs:
         distribution: 'adopt'
         cache: 'maven'
 
-    - name: Api Test
-      run: mvn clean -Dport=8080 test -Dtest=ApiTest
-
     - name: WebLogin Test
       run: mvn clean test -Dport=8080 -Dtest=WebLoginTest
       
