@@ -31,10 +31,10 @@ jobs:
         cache: 'maven'
 
     - name: Api Test
-      run: mvn clean test -Dtest=ApiTest
+      run: mvn clean -Dport=8080 test -Dtest=ApiTest
 
     - name: WebLogin Test
-      run: mvn clean test -Dtest=WebLoginTest
+      run: mvn clean test -Dport=8080 -Dtest=WebLoginTest
       
     - name: List directories after test-2
       run: ls -la target
@@ -67,7 +67,3 @@ jobs:
         PUBLISH_BRANCH: gh-pages        
         PUBLISH_DIR: allure-history
 
-        SECRETS_PROPERTIES: ${{ secrets.SECRETS_PROPERTIES }}
-        run: echo "$SECRETS_PROPERTIES" | base64 -d > ./settings.properties
-        
-    
