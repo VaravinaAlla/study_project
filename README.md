@@ -4,6 +4,7 @@ Example with Java/Selenide, JUnit5 with Maven
 _- Integration Testing with DB:_
   - Creating order by API and checking number of order on UI;
   - Creating order by API and checking number of order in DB;
+
 _- API Testing:_
   - Checking creating random order;
   - Checking searching created random order;
@@ -11,6 +12,7 @@ _- API Testing:_
   - Checking responded status code 401 without token;
   - Checking responded status code 415 without content type;
   - Checking responded status code 403;
+
 _- UI Testing:_
   - Checking successful login with valid value;
   - Checking appearing error modal window with invalid value;
