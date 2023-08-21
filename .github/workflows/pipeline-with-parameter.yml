@@ -26,6 +26,6 @@ jobs:
           distribution: 'adopt'
           
       - name: Run tests
-        run: mvn test -Dport=8080 -Dtest=${{ inputs.testClassName }}
+        run: mvn -Dport=8080 test -Dtest=${{ inputs.testClassName }}
         
 

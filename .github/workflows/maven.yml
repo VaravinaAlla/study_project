@@ -31,7 +31,7 @@ jobs:
         cache: 'maven'
 
     - name: WebLogin Test
-      run: mvn clean test -Dport=8080 -Dtest=WebLoginTest
+      run: mvn clean -Dport=8080 test -Dtest=WebLoginTest
       
     - name: List directories after test-2
       run: ls -la target
